@@ -1,0 +1,86 @@
+/* static/recommendations.css */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('path/to/Montserrat-Regular.woff2') format('woff2'),
+         url('path/to/Montserrat-Regular.woff') format('woff');
+    /* Adaugă aici alte variante ale fontului, dacă este cazul */
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('camin_font/lato-regular.woff2') format('woff2'), /* specifică calea corectă către fișierul fontului */
+         url('camin_font/lato-regular.woff') format('woff');
+    font-weight: 800; /* specifică greutatea fontului */
+    font-style: normal; /* specifică stilul fontului */
+}
+
+
+h1{
+    display: flex;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+}
+
+/* static/recommendations.css */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-info {
+    width: 300px;
+    margin: 25px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-info h2 {
+    font-size: 1.7em;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.title{
+    padding: 3px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.movie-info p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.movie-info p strong {
+    color: #333;
+}
+
+.movie-info p:last-child {
+    margin-bottom: 0;
+}
+

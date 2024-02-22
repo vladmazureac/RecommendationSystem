@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Navigation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+</head>
+<body>
+    <h1>Sistem Expert pentru Recomandarea Filmelor</h1>
+
+<div class="center">
+    <div class="all">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'search')">După titlu</button>
+            <button class="tablinks" onclick="openTab(event, 'preferences')" id="defaultOpen">Preferințe</button>
+            <button class="tablinks" onclick="openTab(event, 'toprated')">Top Rating</button>
+        </div>
+
+        <div class="search">
+            <div id="search" class="tabcontent">
+                <h2 style="font-size: 26px;">Obțineți recomandări după titlul filmului</h2>
+                <form action="/" method="post">
+                    <div class="search_space">
+                        <label for="movie_name">Introdu titlul filmului</label>
+                        <input type="text" id="movie_name" name="movie_name">
+                        <button type="submit">Recomandă</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="preferences">
+            <div id="preferences" class="tabcontent">
+                <h2 style="font-size: 26px;">Obține recomandări după preferințe</h2>
+                    <form action="/recommendations_by_preferences" method="post" onsubmit="prepareGenres()">
+                        <div class="preferences_space">
+                            <label for="genres">Genurile preferate</label><br>
+                            <input type="text" id="genres" name="genres">
+                            <br>
+                            <label for="year">Anul minim</label><br>
+                            <input type="number" id="year" name="year" min="1900" max="2022">
+                            <br>
+                            <label for="rating">Ratingul minim</label><br>
+                            <input type="number" id="rating" name="rating" min="0" max="10" step="0.1">
+                            <br>
+                            <button type="submit">Recomandă</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+        <div class="toprated">
+            <div id="toprated" class="tabcontent">
+                <h2>Filme cu cel mai mare rating</h2>
+                <form action="/top_rated_movies" method="post">
+                    <div class="toprated_space">
+                        <label for="number_of_movies">Alegeți numărul de filme</label>
+                        <select id="number_of_movies" name="number_of_movies">
+                            <option value="10">Top 10</option>
+                            <option value="20">Top 20</option>
+                            <option value="50">Top 50</option>
+                        </select>
+                        <br>
+                        <button type="submit">Afișează</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+<script>
+    function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+</html>
